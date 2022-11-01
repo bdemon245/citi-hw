@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-size: 20px; 
+    font-family: 'Arial';
+    display: grid;
+    grid-template-areas: 
+    "head head"
+    "col1 col2";
+    gap: 10px;
+    align-items: center;
+    line-height: 1.2em;
+}
+.heading{
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    display : flex;
+    justify-content : center;
+    width: 100%;
+    height: min-content;
+    grid-area: head;
+    background-image: linear-gradient(to right, #2E294E , #D6D6B1);
+}
+
+.col-1{
+    grid-area: col1;
+    background: #2E294E;
+    height : 100%;
+    width : 100%;
+    color: white;
+    padding: 2rem;
+}
+.col-2{
+    grid-area: col2;
+    background: #D6D6B1;
+    color: black;
+    height : 100%;
+    width : 100%;
+    padding: 2rem;
+}
