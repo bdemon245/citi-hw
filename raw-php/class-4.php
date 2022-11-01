@@ -1,36 +1,11 @@
 <?php
 //basic css
-echo "<style>
-*{
-    box-sizing: border-box;
-}
-body{
-    font-size: 20px; 
-    font-family: 'Arial';
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-area: 1fr;
-    gap: 1em;
-    justify-content: space-around;
-    align-items: center;
-    line-height: 1.2em;
-}
-.col-1{
-    background: #2E294E;
-    height : 100vh;
-    width : 100%;
-    color: white;
-    padding: 2rem;
-}
-.col-2{
-    background: #D6D6B1;
-    color: black;
-    height : 100vh;
-    width : 100%;
-    padding: 2rem;
-}
-</style>";
+echo "<head><link rel=\"stylesheet\" href=\"style.css\"></head>";
 //basic css
+
+//heading
+echo "<div class=\"heading\"><h1>Raw PHP-Class 4</h1></div>";
+
 
 echo "<div class=\"col-1\">";//column 1
 #8. types of array
