@@ -24,7 +24,7 @@
 			"",
 			"//heading",
 			"echo \"<div class=\\\"heading\\\"><h1>Raw PHP-Class $1</h1></div>\";",
-			"",
+			"","","",
 			"//column 1",
 			"echo \"<div class=\\\"col-1\\\">\";",
 			"","$2","",
