@@ -19,6 +19,8 @@
 		"scope": "php",
 		"prefix": "ls",
 		"body": [
+			"<?php",
+			"",
 			"//link css",
 			"echo \"<head><link rel=\\\"stylesheet\\\" href=\\\"style.css\\\"></head>\";",
 			"",
