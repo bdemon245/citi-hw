@@ -1,12 +1,7 @@
 <?php
-include_once "./inc/env.php";
-$id = $_GET['id'];
-$query = "SELECT first_name, last_name FROM users WHERE id = '$id'";
-$result = mysqli_query($conn, $query);
-$data = mysqli_fetch_assoc($result);
 
-$fname = $data['first_name'];
-$lname = $data['last_name'];
+$fname = $_SESSION['first_name'];
+$lname = $_SESSION['last_name'];
 
 $url = "https://avatars.dicebear.com/api/initials/$fname/ $lname.svg";
 
