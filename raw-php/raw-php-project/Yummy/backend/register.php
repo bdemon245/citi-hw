@@ -124,22 +124,20 @@ function print_error($key)
     </div>
     <?php
     if (isset($_SESSION['success'])) { ?>
-        <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-            <div class="toast show" style="position: absolute; bottom: 8vh; right: 2vw;">
-                <div class="toast-header">
-                    <strong class="mr-auto">Well done, <?php
-                                                        if (isset($_SESSION['user'])) {
-                                                            $user = $_SESSION['user'];
-                                                            echo $user['first_name'] . " " . $user['last_name'];
-                                                        } ?></strong>
-                    <!-- <small>11 mins ago</small> -->
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="toast-body">
-                    <?= $_SESSION['success'] ?>
-                </div>
+        <div class="toast show" style="position: absolute; bottom: 5vh; right: 2vw;">
+            <div class="toast-header">
+                <strong class="mr-auto">Well done, <?php
+                                                    if (isset($_SESSION['user'])) {
+                                                        $user = $_SESSION['user'];
+                                                        echo $user['first_name'] . " " . $user['last_name'];
+                                                    } ?></strong>
+                <!-- <small>11 mins ago</small> -->
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                <?= $_SESSION['success'] ?>
             </div>
         </div>
     <?php } ?>
