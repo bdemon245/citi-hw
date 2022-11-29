@@ -22,18 +22,18 @@ if ($request['login'] === "submitted") {
         $data = mysqli_fetch_assoc($result);
         $id = $data['id'];
         $is_verified = password_verify($password, $data['password']);
-        
-        if($is_verified){
-            header("location: ../dashboard.php?id=$id");
+
+        if ($is_verified) {
+            header("location: ../dashboard.php");
             $_SESSION["success"] = "Logged in successfully!🎉";
             $_SESSION["first_name"] = $data['first_name'];
             $_SESSION["last_name"] = $data['last_name'];
-        }else{
+            $_SESSION['auth'] = $is_verified;
+        } else {
             $_SESSION['incorrect_password'] = "Some peanuts 🥜 might be helpful.";
             header("location: ../login.php");
         }
-
-    }else{
+    } else {
         $_SESSION['user_not_found'] = "Who are you?😑";
         header("location: ../login.php");
     }
