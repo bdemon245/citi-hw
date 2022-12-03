@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
         $query = "UPDATE banners SET banner_title = '$banner_title', banner_detail = '$banner_detail', promo_video = '$promo_video' WHERE id='$id'";
         $update = mysqli_query($conn, $query);
         if ($update) {
-            $_SESSION['success'] = "Banner Updated";
+            $_SESSION['success'] = "Banner Info Updated";
             header("location: ../view_banners.php");
         }
     }
