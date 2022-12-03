@@ -1,24 +1,26 @@
 <?php
-session_start();
 include "./inc/header.php";
-// var_dump(isset($_SESSION['errors']['banner_title']));
 
+//setting erros in a variable
 $error_title = isset(($_SESSION['errors']['banner_title'])) ? ($_SESSION['errors']['banner_title']) : null;
 $error_detail = isset(($_SESSION['errors']['banner_detail'])) ? ($_SESSION['errors']['banner_detail']) : null;
 $error_video = isset(($_SESSION['errors']['promo_video'])) ? ($_SESSION['errors']['promo_video']) : null;
 $error_image = isset(($_SESSION['errors']['banner_image'])) ? ($_SESSION['errors']['banner_image']) : null;
 
-
+//seting labels if there is no error
 $label_title = "enter banner title";
 $label_detail = "enter banner detail";
 $label_video = "enter promo video link";
+
+//function for setting is-invalid class for input field red-border
 function is_invalid($var)
 {
     if (isset($var)) echo "is-invalid";
 }
+
+//function for setting error
 function set_error($error, $label)
 {
-    # code...
     echo isset($error) ? $error : ucwords("$label");
 }
 
@@ -37,7 +39,7 @@ function set_error($error, $label)
                 <div class="row align-items-center">
                     <div class="col-md-5">
                         <label>
-                            <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="" style="width: 100%; height: 100%;" id="image_holder" class="mb-3">
+                            <img class="rounded-3" src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="" style="width: 100%; height: 100%;" id="image_holder" class="mb-3">
                             <input type="file" name="banner_image" id="banner_image" hidden>
                             <?php if (isset($error_image)) { ?>
                                 <span class="text-danger"><?= $error_image ?></span>
@@ -70,14 +72,14 @@ function set_error($error, $label)
 </div>
 
 
-<!-- //toast for successful login -->
+<!-- //toast for added banner -->
 <?php
 if (isset($_SESSION['success'])) { ?>
     <div class="toast show" style="position: absolute; bottom: 8vh; right: 2vw;">
-        <div class="toast-header">
-            <strong class="mr-auto">Great 🤩</strong>
+        <div class="toast-header bg-success text-light">
+            <strong class="mr-auto"><i class="fa-solid fa-circle-check me-3"></i>Great</strong>
             <!-- <small>11 mins ago</small> -->
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <button type="button" class="ml-2 mb-1 close text-light" data-dismiss="toast show" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>

@@ -32,12 +32,12 @@ function print_error($key)
     <title>Yummy Website Registration</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./incvendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./inc/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -50,7 +50,7 @@ function print_error($key)
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 bg-register-image p-3">
-                        <img src="./img/register_illustration.jpg" alt="" srcset="" style="width:100%; height: 100%;">
+                        <img src="./inc/img/register_illustration.jpg" alt="" srcset="" style="width:100%; height: 100%;">
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">

@@ -15,11 +15,18 @@ session_start();
     <title>SB Admin 2 - Login</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./inc/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./inc/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- font-awesome latest cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 </head>
 
@@ -36,7 +43,7 @@ session_start();
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-lg-block p-3">
-                                <img src="./img/login_illustration.jpg" alt="" srcset="" style="width:100%; height: 100%;">
+                                <img src="./inc/img/login_illustration.jpg" alt="" srcset="" style="width:100%; height: 100%;">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -63,7 +70,7 @@ session_start();
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a class="small" href="forgot-password.php">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="register.php">Create an Account!</a>
@@ -80,51 +87,35 @@ session_start();
 
     </div>
     <?php
-    //toast for incorrect password
-    if (isset($_SESSION['incorrect_password'])) { ?>
-        <div class="toast show" style="position: absolute; bottom: 8vh; right: 2vw;">
-            <div class="toast-header">
-                <strong class="mr-auto">Memory lost?😯</strong>
-                <!-- <small>11 mins ago</small> -->
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                <?= $_SESSION['incorrect_password'] ?>
-            </div>
-        </div>
-    <?php
-    }
-    ?>
-
-    <?php
     //toast for incorrect email
-    if (isset($_SESSION['user_not_found'])) { ?>
-        <div class="toast show" style="position: absolute; bottom: 8vh; right: 2vw;">
-            <div class="toast-header">
-                <strong class="mr-auto">Wait a minute!🤨</strong>
-                <!-- <small>11 mins ago</small> -->
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+    if (isset($_SESSION['login_error'])) { ?>
+        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; bottom: 8vh; right: 2vw;">
+            <div class="toast-header bg-danger text-light">
+                <!-- <img src="..." class="rounded mr-2" alt="..."> -->
+                <strong class="mr-auto"><i class="fa-solid fa-circle-exclamation"></i> Oops..</strong>
+                <button type="button" class="ml-2 mb-1 close text-light" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="toast-body">
-                <?= $_SESSION['user_not_found'] ?>
+                <?= $_SESSION['login_error'] ?>
             </div>
         </div>
     <?php
     }
     ?>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./inc/vendor/jquery/jquery.min.js"></script>
+    <script src="./inc/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./inc/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="./inc/js/sb-admin-2.min.js"></script>
 
 </body>
 

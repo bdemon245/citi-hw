@@ -16,25 +16,22 @@ if ($request['login'] === "submitted") {
 
     $query = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
 
+    $user = mysqli_num_rows($result) > 0;
+    $login = password_verify($password, $data['password']);
 
-    if (mysqli_num_rows($result) > 0) {
-        $data = mysqli_fetch_assoc($result);
-        $id = $data['id'];
-        $is_verified = password_verify($password, $data['password']);
-
-        if ($is_verified) {
-            header("location: ../dashboard.php");
-            $_SESSION["success"] = "Logged in successfully!🎉";
-            $_SESSION["first_name"] = $data['first_name'];
-            $_SESSION["last_name"] = $data['last_name'];
-            $_SESSION['auth'] = $is_verified;
-        } else {
-            $_SESSION['incorrect_password'] = "Some peanuts 🥜 might be helpful.";
-            header("location: ../login.php");
-        }
-    } else {
-        $_SESSION['user_not_found'] = "Who are you?😑";
+    if (!$user) {
+        $_SESSION['login_error'] = "No Users found!";
         header("location: ../login.php");
+    } else if (!$login) {
+        $_SESSION['login_error'] = "Password is incorrect!";
+        header("location: ../login.php");
+    } else {
+        header("location: ../dashboard.php");
+        $_SESSION["success"] = "Log in successfull🎉";
+        $_SESSION["first_name"] = $data['first_name'];
+        $_SESSION["last_name"] = $data['last_name'];
+        $_SESSION['auth'] = $login;
     }
 }
