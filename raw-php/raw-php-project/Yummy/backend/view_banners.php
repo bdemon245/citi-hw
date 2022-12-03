@@ -98,9 +98,24 @@ include "./inc/header.php";
 </div>
 </div>
 </div>
+<?php
+//toast for editing banner
+if (isset($_SESSION['success'])) { ?>
+    <div class="toast show " style="position: absolute; bottom: 8vh; right: 2vw;">
+        <div class="toast-header bg-success text-light">
+            <strong class="mr-auto"><i class="fa-solid fa-circle-check me-3"></i>Great</strong>
+            <button type="button" class="ml-2 mb-1 close text-light" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            <?= $_SESSION['success'] ?>
+        </div>
+    </div>
 
 
 <?php
+}
 //toast for deleting banner
 if (isset($_SESSION['active'])) { ?>
     <div class="toast show " style="position: absolute; bottom: 8vh; right: 2vw;">
@@ -137,6 +152,7 @@ if (isset($_SESSION['deactive'])) { ?>
 }
 unset($_SESSION['active']);
 unset($_SESSION['deactive']);
+unset($_SESSION['success']);
 include "./inc/footer.php";
 
 ?>

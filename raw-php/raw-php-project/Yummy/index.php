@@ -5,19 +5,27 @@ $result = mysqli_query($conn, $query);
 
 $banner = mysqli_fetch_assoc($result);
 
-$title = $banner['banner_title'];
-$detail = $banner['banner_detail'];
 
-//converting embeded url to normal url
-$video = $banner['promo_video'];
-$pattern = "/embed\//";
-$video = preg_replace($pattern, "watch?v=", $video);
+//there is an active banner
+if (mysqli_num_rows($result) > 0) {
+  $title = $banner['banner_title'];
+  $detail = $banner['banner_detail'];
 
-//making path for image
-$path = "./uploads/banners";
-$image_name = $banner['banner_image'];
-$image = "$path/$image_name";
+  //converting embeded url to normal url
+  $video = $banner['promo_video'];
+  $pattern = "/embed\//";
+  $video = preg_replace($pattern, "watch?v=", $video);
 
+  //making path for image
+  $path = "./uploads/banners";
+  $image_name = $banner['banner_image'];
+  $image = "$path/$image_name";
+} else { // if there is no active banner
+  $title = null;
+  $detail = null;
+  $video = null;
+  $image = null;
+}
 ?>
 
 <!DOCTYPE html>
@@ -115,17 +123,17 @@ $image = "$path/$image_name";
     <div class="container">
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h2 data-aos="fade-up"><?= $title ?></h2>
+          <h2 data-aos="fade-up"><?= isset($title) ? $title :  "Lorem ipsum dolor sit amet" ?></h2>
           <p data-aos="fade-up" data-aos-delay="100">
-            <?= $detail ?>
+            <?= isset($detail) ? $detail :  "amet consectetur adipisicing elit. Excepturi, iure! Assumenda repellendus ipsam minima, doloribus voluptates sint beatae corrupti fugit!" ?>
           </p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
-            <a href="<?= $video ?>" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="<?= isset($video) ? $video :  "#video-link" ?>" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="<?= $image ?>" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300" />
+          <img src="<?= isset($image) ? $image :  "./frontend/assets/img/hero-img.png" ?>" class="img-fluid rounded-3" alt="" data-aos="zoom-out" data-aos-delay="300" style="width: 100%; max-height: 350px; object-fit: cover;" />
         </div>
       </div>
     </div>
