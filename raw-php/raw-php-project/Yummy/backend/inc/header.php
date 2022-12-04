@@ -70,6 +70,8 @@ $url = "https://avatars.dicebear.com/api/initials/$fname/ $lname.svg";
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+
+            <!-- components tab -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <i class="fas fa-fw fa-cog"></i>
@@ -83,6 +85,8 @@ $url = "https://avatars.dicebear.com/api/initials/$fname/ $lname.svg";
                     </div>
                 </div>
             </li>
+
+            <!-- banners tab -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -93,6 +97,23 @@ $url = "https://avatars.dicebear.com/api/initials/$fname/ $lname.svg";
                         <h6 class="collapse-header">Manage Banners:</h6>
                         <a class="collapse-item" href="./add_banner.php">Add Banner</a>
                         <a class="collapse-item" href="./view_banners.php">View Banners</a>
+
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- events tab -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Events</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Manage Events:</h6>
+                        <a class="collapse-item" href="./add_event.php">Add Event</a>
+                        <a class="collapse-item" href="./view_events.php">View Events</a>
 
                     </div>
                 </div>

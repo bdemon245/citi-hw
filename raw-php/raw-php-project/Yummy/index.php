@@ -1,5 +1,6 @@
 <?php
 include "./backend/inc/env.php";
+//get banners
 $query = "SELECT * FROM banners WHERE banner_status = '1'";
 $result = mysqli_query($conn, $query);
 
@@ -26,6 +27,13 @@ if (mysqli_num_rows($result) > 0) {
   $video = null;
   $image = null;
 }
+
+//get events
+$query = "SELECT title, detail, price, image FROM events WHERE 1";
+$result = mysqli_query($conn, $query);
+$events = mysqli_fetch_all($result, 1);
+
+// var_dump($events);
 ?>
 
 <!DOCTYPE html>
@@ -761,38 +769,21 @@ if (mysqli_num_rows($result) > 0) {
 
         <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(./frontend/assets/img/events-1.jpg)">
-              <h3>Custom Parties</h3>
-              <div class="price align-self-start">$99</div>
-              <p class="description">
-                Quo corporis voluptas ea ad. Consectetur inventore sapiente
-                ipsum voluptas eos omnis facere. Enim facilis veritatis id est
-                rem repudiandae nulla expedita quas.
-              </p>
-            </div>
-            <!-- End Event item -->
-
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(./frontend/assets/img/events-2.jpg)">
-              <h3>Private Parties</h3>
-              <div class="price align-self-start">$289</div>
-              <p class="description">
-                In delectus sint qui et enim. Et ab repudiandae inventore
-                quaerat doloribus. Facere nemo vero est ut dolores ea
-                assumenda et. Delectus saepe accusamus aspernatur.
-              </p>
-            </div>
-            <!-- End Event item -->
-
-            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(./frontend/assets/img/events-3.jpg)">
-              <h3>Birthday Parties</h3>
-              <div class="price align-self-start">$499</div>
-              <p class="description">
-                Laborum aperiam atque omnis minus omnis est qui assumenda
-                quos. Quis id sit quibusdam. Esse quisquam ducimus officia
-                ipsum ut quibusdam maxime. Non enim perspiciatis.
-              </p>
-            </div>
-            <!-- End Event item -->
+            <?php
+            foreach ($events as $key => $event) {
+              $image_path = "./uploads/events/";
+              $image_src = $image_path . $event['image'];
+            ?>
+              <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(<?= $image_src ?>)">
+                <h3><?= $event['title'] ?></h3>
+                <div class="price align-self-start">$<?= $event['price'] ?></div>
+                <p class="description">
+                  <?= $event['detail'] ?>
+                </p>
+              </div>
+              <!-- End Event item -->
+            <?php }
+            ?>
           </div>
           <div class="swiper-pagination"></div>
         </div>

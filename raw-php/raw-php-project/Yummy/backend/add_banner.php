@@ -68,8 +68,6 @@ function set_error($error, $label)
     </div>
 
 </div>
-</div>
-</div>
 
 
 <!-- //toast for added banner -->
